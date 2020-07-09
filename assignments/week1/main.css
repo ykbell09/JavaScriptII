@@ -1,0 +1,43 @@
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+header img {
+    max-width: 100px;
+}
+
+nav,
+footer {
+    background: rgb(165, 166, 177);
+    text-align: center;
+    padding: 10px 0;
+    margin: 5px 0;
+}
+
+nav ul,
+footer p {
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    padding: 0 5px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(220, 235, 91);
+}
+
+a:hover {
+    color: white;
+}
+
+button {
+    border-radius: 3px;
+    width: 125px;
+    margin: 0 5px 10px 5px;
+    padding: 5px;
+    font-size: 1.2em;
+}

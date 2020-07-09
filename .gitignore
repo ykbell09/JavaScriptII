@@ -1,0 +1,6 @@
+# notes directory
+notes/
+
+# non-code related assignment docs
+*.pdf
+*.gdoc
