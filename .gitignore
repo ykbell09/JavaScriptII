@@ -4,3 +4,6 @@ notes/
 # non-code related assignment docs
 *.pdf
 *.gdoc
+
+# misc
+*.ini
