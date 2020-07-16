@@ -17,20 +17,31 @@ const addItem = () => {
 
 const getPurchasedItem = () => {
     const checkBoxes = document.getElementsByClassName('checkbox');
-    if (checkBoxes.length >= 1) {
+    if (checkBoxes.length > 0) {
         for (let i = 0; i < checkBoxes.length; i++) {
             if (checkBoxes[i].checked === true) {
                 const purchasedItem = checkBoxes[i].parentNode;
                 purchasedItem.className = 'completed';
                 const purchasedList = document.querySelector('#purchased-list');
                 purchasedList.appendChild(purchasedItem);
-
             }
         };
     }
 };
 
 const returnItem = () => {
+    const checkBoxes = document.getElementsByClassName('checkbox');
+    if (checkBoxes.length > 0) {
+        for (let i = 0; i < checkBoxes.length; i++) {
+            const returnedItem = checkBoxes[i].parentNode; // variable to store li node
+            if (checkBoxes[i].checked === false && returnedItem.className == "completed") {
+                // if the box is checked, and the item has completed class
+                returnedItem.removeAttribute('class'); // remove completed class 
+                const shoppingList = document.querySelector('#shopping-list'); // get shopping list ol
+                shoppingList.appendChild(returnedItem); // add returned item back to shopping list
+            }
+        }
+    }
 
 };
 
