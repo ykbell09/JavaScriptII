@@ -1,7 +1,3 @@
-document.querySelector('#button').addEventListener("click", () => {
-    addItem();
-});
-
 const addItem = () => {
     const shoppingList = document.querySelector('#shopping-list'); // get ol
     let input = document.querySelector('#input'); // target input field
@@ -19,6 +15,33 @@ const addItem = () => {
     shoppingList.appendChild(listItem); // add li to ol (shopping list)
 };
 
-const purchaseItem = () => {
+const getPurchasedItem = () => {
+    const checkBoxes = document.getElementsByClassName('checkbox');
+    if (checkBoxes.length >= 1) {
+        for (let i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes[i].checked === true) {
+                const purchasedItem = checkBoxes[i].parentNode;
+                purchasedItem.className = 'completed';
+                const purchasedList = document.querySelector('#purchased-list');
+                purchasedList.appendChild(purchasedItem);
+
+            }
+        };
+    }
+};
+
+const returnItem = () => {
 
 };
+
+document.querySelector('#button').addEventListener("click", () => {
+    addItem();
+});
+
+document.querySelector('#shopping-list').addEventListener("click", () => {
+    getPurchasedItem();
+});
+
+document.querySelector('#purchased-list').addEventListener("click", () => {
+    returnItem();
+});
