@@ -7,8 +7,8 @@ const addItem = () => {
     const listItem = document.createElement('li'); // create li element
     const newItem = document.createTextNode(inputItem);
     const checkBox = document.createElement('input'); // create checkbox element
-    checkBox.type = 'checkbox';
-    checkBox.className = 'checkbox';
+    checkBox.type = 'checkbox'; // add type attribute to input element
+    checkBox.className = 'checkbox'; // add class attribute to input element
 
     listItem.appendChild(newItem); // add item to li element
     listItem.appendChild(checkBox); // add checkbox to li element
@@ -16,14 +16,14 @@ const addItem = () => {
 };
 
 const getPurchasedItem = () => {
-    const checkBoxes = document.getElementsByClassName('checkbox');
+    const checkBoxes = document.getElementsByClassName('checkbox'); // get a list of inputs
     if (checkBoxes.length > 0) {
         for (let i = 0; i < checkBoxes.length; i++) {
-            if (checkBoxes[i].checked === true) {
-                const purchasedItem = checkBoxes[i].parentNode;
-                purchasedItem.className = 'completed';
-                const purchasedList = document.querySelector('#purchased-list');
-                purchasedList.appendChild(purchasedItem);
+            if (checkBoxes[i].checked === true) { // loop though input for t/f
+                const purchasedItem = checkBoxes[i].parentNode; // get li of true inputs
+                purchasedItem.className = 'completed'; // add class attribute
+                const purchasedList = document.querySelector('#purchased-list'); // get purchased ol
+                purchasedList.appendChild(purchasedItem); // add item to purchased list
             }
         };
     }
