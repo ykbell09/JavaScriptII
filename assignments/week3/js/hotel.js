@@ -12,7 +12,7 @@
     this.discount = discount;
     this.offerPrice = () => {
       var offerRate = this.roomRate * ((100 - this.discount) / 100);
-      return Math.round(offerRate);
+      return offerRate;
     }
   };
 
@@ -40,7 +40,7 @@
   };
   let selectedHotel = selectHotel();
 
-  // Write out the hotel name, standard rate, and the special rate
+  // Write out the hotel name, standard rate, and the special rate; added discount rate
   let hotelName, roomRate, specialRate, discountRate;                    // Declare variables
 
   hotelName = document.getElementById('hotelName');        // Get elements
@@ -50,7 +50,7 @@
 
   hotelName.textContent = hotels[selectedHotel].name;                      // Write hotel name
   roomRate.textContent = '$' + hotels[selectedHotel].roomRate.toFixed(2); // Write room rate
-  specialRate.textContent = '$' + hotels[selectedHotel].offerPrice();      // Write offer price
+  specialRate.textContent = '$' + hotels[selectedHotel].offerPrice().toFixed(0);      // Write offer price
   discountRate.textContent = hotels[selectedHotel].discount + '% off';        // Write discount rate
     
   
