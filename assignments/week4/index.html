@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Data</title>
+    <script src="js/assignment4.js"></script>
+    <link href="css/assignment4.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+    <h1>Assignment 4: Working with JSON, Objects, and Arrays</h1>
+    <p>By: < Your Name Here ></p>
+</header>
+<fieldset>
+    <legend>New User</legend>
+    <i>*All fields are required</i>
+    <form onsubmit="return false;">
+        <input id="firstname" placeholder="firstname" required>
+        <input id="lastname" placeholder="lastname" required>
+        <input id="email" placeholder="email" required>
+        <input type="password" id="password" placeholder="password" required>
+        <button id="submit">Add User</button>
+        <button id="reset" type="reset">Reset Fields</button>
+    </form>
+</fieldset>
+
+<div class="buttons">
+    <button id="btnShowUsers">Show User Data</button>
+    <button id="btnShowJSON">Show JSON Data</button>
+    <button id="btnClearData">Clear All Data</button>
+</div>
+
+<fieldset class="user-data">
+    <legend>Users</legend>
+    <div id="user-data">
+    </div>
+</fieldset>
+
+<fieldset class="json-data">
+    <legend>JSON Data</legend>
+    <div id="json-data">
+    </div>
+</fieldset>
+
+
+</body>
+</html>
