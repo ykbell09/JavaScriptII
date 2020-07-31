@@ -31,12 +31,15 @@ button {
     font-size: 12pt;
     padding: 2px 12px;
     margin: 10px;
+    border: 1px solid grey;
+    border-radius: 3px;  
 }
 
 button:hover{
     background-color:#66afe9;
     border: 1px solid black;
 }
+
 input:focus {
     background-color: yellow;
 }
