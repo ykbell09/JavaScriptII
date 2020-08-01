@@ -26,12 +26,14 @@ window.onload = () => {
     };
 
     const showData = () => {
-
+        // clear any existing non-current data
         userData.innerHTML = '';
 
+        // if the Users array has data ... iterate through users array and display
         if (users.length >= 1) {
-            // iterate through users array and display
+
             for (let index in users) {
+
                 const userLabel = document.createElement('dl');
                 const userLabelText = document.createTextNode('User #' + (parseInt(index) + 1));
                 userLabel.appendChild(userLabelText);
@@ -43,12 +45,12 @@ window.onload = () => {
                 userLabel.appendChild(userName);
 
                 const userEmail = document.createElement('dd');
-                const userEmailText = document.createTextNode('Email: ' + users[index].email);
+                const userEmailText = document.createTextNode(`Email: ${users[index].email}`);
                 userEmail.appendChild(userEmailText);
                 userLabel.appendChild(userEmail);
 
                 const userPassword = document.createElement('dd');
-                const userPasswordText = document.createTextNode('Password: ' + users[index].password);
+                const userPasswordText = document.createTextNode(`Password: ${users[index].password}`);
                 userPassword.appendChild(userPasswordText);
                 userLabel.appendChild(userPassword);
             }
@@ -56,18 +58,19 @@ window.onload = () => {
     };
 
     const showJSONData = () => {
-
+        // clearn any existing non-current data
         jsonData.innerHTML = '';
 
+        // if the Users array has data ... stringify and display
         if (users.length >= 1) {
+
             const jsonString = JSON.stringify(users);
-            
+
             const userJson = document.createElement('p');
             const userJsonText = document.createTextNode(jsonString);
             userJson.appendChild(userJsonText);
             jsonData.appendChild(userJson);
         }
-
     };
 
     const clearAllData = () => {
@@ -77,6 +80,7 @@ window.onload = () => {
             users.length = 0;
         }
     };
+
 
     document.querySelector('#submit').addEventListener('click', () => {
         addUser();
