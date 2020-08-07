@@ -50,7 +50,6 @@ const displayBooks = () => {
         const title = document.createElement('td');
         const titleInput = document.createElement('input');
         titleInput.className = 'title';
-        titleInput.id = i;
         titleInput.value = books[i].title;
         tbody.appendChild(newRow);
         newRow.appendChild(title);
@@ -70,7 +69,7 @@ const displayBooks = () => {
         newRow.appendChild(qty);
         qty.appendChild(qtyInput);
         qtyInput.addEventListener('blur', () => {
-            books[i].qty = parseInt(qtyInput.value);
+            books[i].qty = qtyInput.value;
             saveCart();
             displayBooks();
         });
@@ -80,12 +79,11 @@ const displayBooks = () => {
         const priceInput = document.createElement('input');
         priceInput.className = 'price';
         priceInput.size = '2';
-        priceInput.value = books[i].price.toFixed(20;
+        priceInput.value = books[i].price;
         newRow.appendChild(price);
         price.appendChild(priceInput);
         priceInput.addEventListener('blur', () => {
-            console.log(priceInput.value);
-            books[i].price = parseInt(priceInput.value);
+            books[i].price = priceInput.value;
             saveCart();
             displayBooks();
         });
@@ -157,26 +155,13 @@ const addBook = () => {
     displayBooks();
 };
 
-// saves current books[] to localStorage
+// saves current books[] to localStorage; also used as helper function when manipulating books[]
 const saveCart = () => {
     const cart = JSON.stringify(books);
     localStorage.setItem('books', cart);
 };
 
-// removes book from books[] and localStorage, updates display
-// const removeBook = (e) => {
-//     const removeButton = e.target;
-//     if (removeButton.className === 'remove-button') {
-//         const bookId = removeButton.parentNode.parentNode.firstChild.firstChild.id;
-//         removeButton.parentNode.parentNode.remove();
-//         books.splice(bookId, 1);
-
-//         saveCart();
-//         displayBooks();
-//     }
-// };
-
-// load and display saved or new cart on page load, add event listeners
+// load and display saved or new cart on page load, add 'new' and 'save' event listeners
 window.onload = () => {
 
     loadBooks();
@@ -190,9 +175,5 @@ window.onload = () => {
     document.querySelector('#save-button').addEventListener('click', () => {
         saveCart();
     });
-
-    // document.querySelector('tbody').addEventListener('click', (e) => {
-    //     removeBook(e);
-    // });
 
 };
