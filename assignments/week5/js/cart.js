@@ -1,8 +1,10 @@
 // Week 5 Assignment - Shopping Cart
 
+// global vars -- table body for display and array to store books data
 let tbody;
 let books = [];
 
+// checks localStorage for books; sets value of books[] with localStorage or default values
 const loadBooks = () => {
 
     const defaultBooks = [
@@ -31,6 +33,7 @@ const loadBooks = () => {
     }
 };
 
+// displays all items in books[], displays total and count
 const displayBooks = () => {
 
     // target the table body
@@ -52,6 +55,11 @@ const displayBooks = () => {
         tbody.appendChild(newRow);
         newRow.appendChild(title);
         title.appendChild(titleInput);
+        titleInput.addEventListener('blur', () => {
+            books[i].title = titleInput.value;
+            saveCart();
+            displayBooks();
+        });
 
         // add the qty
         const qty = document.createElement('td');
@@ -61,15 +69,26 @@ const displayBooks = () => {
         qtyInput.value = books[i].qty;
         newRow.appendChild(qty);
         qty.appendChild(qtyInput);
+        qtyInput.addEventListener('blur', () => {
+            books[i].qty = parseInt(qtyInput.value);
+            saveCart();
+            displayBooks();
+        });
 
-        // add the price
+        // add the price - WIP
         const price = document.createElement('td');
         const priceInput = document.createElement('input');
         priceInput.className = 'price';
         priceInput.size = '2';
-        priceInput.value = books[i].price.toFixed(2);
+        priceInput.value = books[i].price.toFixed(20;
         newRow.appendChild(price);
         price.appendChild(priceInput);
+        priceInput.addEventListener('blur', () => {
+            console.log(priceInput.value);
+            books[i].price = parseInt(priceInput.value);
+            saveCart();
+            displayBooks();
+        });
 
         // add Unit Price column
         const unitPrice = document.createElement('td');
@@ -95,6 +114,11 @@ const displayBooks = () => {
         removeButton.className = 'remove-button';
         newRow.appendChild(remove);
         remove.appendChild(removeButton);
+        removeButton.addEventListener('click', () => {
+            books.splice(i, 1);
+            saveCart();
+            displayBooks();
+        });
     }
 
     countBooks();
@@ -112,7 +136,7 @@ const countBooks = () => {
 const getTotal = () => {
     let total = 0;
     const totalText = document.querySelector('#total');
-    // loop through books and add together
+    // loop through books and add line prices together
     for (let i = 0; i < books.length; i++) {
         const lineTotal = books[i].price * books[i].qty;
         total += lineTotal;
@@ -120,6 +144,7 @@ const getTotal = () => {
     totalText.innerHTML = total.toFixed(2);
 };
 
+// adds new book to books[], localStorage and updates display
 const addBook = () => {
     const newBook =
     {
@@ -128,6 +153,7 @@ const addBook = () => {
         price: 14.95
     };
     books.push(newBook);
+    saveCart();
     displayBooks();
 };
 
@@ -137,55 +163,20 @@ const saveCart = () => {
     localStorage.setItem('books', cart);
 };
 
-const removeBook = (e) => {
-    const removeButton = e.target;
-    if (removeButton.className === 'remove-button') {
-        const bookId = removeButton.parentNode.parentNode.firstChild.firstChild.id;
-        removeButton.parentNode.parentNode.remove();
-        books.splice(bookId, 1);
+// removes book from books[] and localStorage, updates display
+// const removeBook = (e) => {
+//     const removeButton = e.target;
+//     if (removeButton.className === 'remove-button') {
+//         const bookId = removeButton.parentNode.parentNode.firstChild.firstChild.id;
+//         removeButton.parentNode.parentNode.remove();
+//         books.splice(bookId, 1);
 
-        saveCart();
-        displayBooks();
-    }
-};
+//         saveCart();
+//         displayBooks();
+//     }
+// };
 
-const updateBook = (e) => {
-    const bookUpdate = e.target;
-    
-    // update qty
-    if (bookUpdate.className === 'qty') {
-        bookUpdate.addEventListener('blur', () => {
-            const bookId = bookUpdate.parentNode.parentNode.firstChild.firstChild.id;
-            books[bookId].qty = parseInt(bookUpdate.value);
-
-            saveCart();
-            displayBooks();
-        });
-    }
-    
-    // update price
-    if (bookUpdate.className === 'price') {
-        bookUpdate.addEventListener('blur', () => {
-            const bookId = bookUpdate.parentNode.parentNode.firstChild.firstChild.id;
-            books[bookId].price = parseInt(bookUpdate.value);
-
-            saveCart();
-            displayBooks();
-        });
-    }
-
-    // update title
-    if (bookUpdate.className === 'title') {
-        bookUpdate.addEventListener('blur', () => {
-            const bookId = bookUpdate.parentNode.parentNode.firstChild.firstChild.id;
-            books[bookId].title = bookUpdate.value;
-
-            saveCart();
-            displayBooks();
-        });
-    }
-};
-
+// load and display saved or new cart on page load, add event listeners
 window.onload = () => {
 
     loadBooks();
@@ -200,12 +191,8 @@ window.onload = () => {
         saveCart();
     });
 
-    document.querySelector('tbody').addEventListener('click', (e) => {
-        removeBook(e);
-    });
-
-    document.querySelector('tbody').addEventListener('input', (e) => {
-        updateBook(e);
-    });
+    // document.querySelector('tbody').addEventListener('click', (e) => {
+    //     removeBook(e);
+    // });
 
 };
