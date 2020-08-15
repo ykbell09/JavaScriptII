@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/styles.css" rel="stylesheet" />
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/index.js"></script>
     <title>Yvette Bell</title>
 </head>
 
@@ -32,9 +34,7 @@
                 </li>
             </ul>
         </nav>
-    </header>
 
-    <main>
         <section id="hero">
             <img src="images/photo_hero.jpg" class="image-hero shadow"
                 alt="A woman wearing an orange shirt and black pants standing on a rock in front of trees, looking at the sky." />
@@ -57,23 +57,40 @@
                 </div>
             </div>
         </section>
+    </header>
 
-        <section id="section-web"></section>
-        <div class="section-container section-left">
-            <h3>section 00</h3>
-            <h2>web projects</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna
-                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</p>
-            <p><a href="">see more</a></p>
-            <div class="section-container section-right"></div>
+    <main>
+        <section id="section-web">
 
-        </div>
+            <div class="section-container section-card">
+                <h3>section 00</h3>
+                <h2>web projects</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo
+                    consequat.</p>
+                <p><a href="">see more</a></p>
+            </div>
 
-        <section id="section-media" class="section-shaded">
-            <div class="section-container section-left"></div>
-            <div class="section-container section-right">
+            <div class="section-container preview-container">
+                <img src="images/icon_arrow.png" alt="left arrow" class="left-arrow" />
+                <div class="preview-card"></div>
+                <img src="images/icon_arrow.png" alt="right arrow" class="right-arrow" />
+            </div>
+
+        </section>
+
+        <section class="section-shaded" id="section-media">
+
+            <div class="section-container preview-container">
+                <img src="images/icon_arrow.png" alt="left arrow" class="left-arrow" />
+                <div class="preview-card"></div>
+                <img src="images/icon_arrow.png" alt="right arrow" class="right-arrow" />
+            </div>
+
+            <div class="section-container section-shaded section-card">
                 <h3>section 01</h3>
                 <h2>media projects</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -84,11 +101,12 @@
                     consequat.</p>
                 <p><a href="">see more</a></p>
             </div>
+
         </section>
 
-        <section id="section-about">
-            <div class="section-container">
-                <img src="images/photo_headshot_businessRound.png" class="headshot" />
+        <section>
+
+            <div class="section-container section-card">
                 <h3>section 02</h3>
                 <h2>about me</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -97,15 +115,16 @@
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                     commodo
                     consequat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo
-                    consequat.</p>
-            </div>
-            <img src="images/photo_headshot_knitRound.png" class="headshot" />
-            <img src="images/photo_headshot_climbRound.png" class="headshot" />
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et
+                        dolore magna
+                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo
+                        consequat.</p>
+                    </div>
+                    <img src="images/photo_headshot_businessRound.png" class="headshot" id="headshot-business" />
+
+
         </section>
 
     </main>

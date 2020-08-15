@@ -27,10 +27,20 @@ body {
     box-shadow: 0 4px 8px 0 rgba(48, 46, 46, 0.2);
 }
 
-.section-shaded,
-.section-shaded * {
+.section-shaded {
     background-color: var(--ltgreen);
+}
+
+.section-shaded h2,
+.section-shaded h3,
+.section-shaded p,
+.section-shaded a {
     color: var(--offwhite);
+}
+
+.preview-container h4,
+.preview-container p {
+    color: var(--grey);
 }
 
 /* typography */
@@ -49,6 +59,11 @@ h1 {
 h3 {
    text-transform: uppercase;
    font-weight: 300; 
+}
+
+h4 {
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 
@@ -99,9 +114,17 @@ main {
 }
 
 /* hero style */
+#hero {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: center;
+    padding-top: 50px;
+}
+
 .image-hero {
-     max-width: 60%;
-     margin-left: 100px;
+     width: 800px;
+     /* margin-left: 100px; */
      z-index: -1;
      border-left: solid 25px var(--ltgreen);
      border-bottom: solid 25px var(--ltgreen);
@@ -111,9 +134,7 @@ main {
     max-width: 600px;
     padding: 10px 40px 40px 40px;
     background-color: var(--offwhite);
-    position: absolute;
-    top: 125px;
-    left: 50%;
+    margin-left: -200px;
 }
 
 .container-hero-title a,
@@ -128,7 +149,6 @@ main {
 }
 
 /* content sections */
-
 
 .section-container a,
 .section-container a:active,
@@ -151,24 +171,76 @@ main {
     content: '';
 }
 
-section {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    /* margin: auto; */
-
-}
+.section-card {
+    width: 400px;
+} 
 
 .section-container {
-    max-width: 30%;
     padding: 20px;
 }
 
+main section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 50px 0px 50px 0px;
+}
+
+/* preview cards */
+.preview-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-arrow,
+.right-arrow {
+    width: 70px;
+    height: 70px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.left-arrow {
+    transform: rotate(-90deg);
+}
+
+.right-arrow {
+    transform: rotate(90deg);
+}
+
+.preview-card {
+    padding: 15px;
+    /* border: thin solid var(--grey); */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background: white;
+    max-height: 250px;
+    width: 500px;
+    overflow: hidden;
+}
+
+.preview-card div {
+    padding-left: 10px;
+}
+
+.preview-card img {
+    max-height: 200px;
+}
 
 /* about me */
+/* NEEDS MEDIA QUERY */
+
 .headshot {
-    max-width: 200px;
+    flex-shrink: 2;
+    max-width: 400px;
+    padding: 20px 0px;
 }
+
 
 /* footer style */
 footer,
