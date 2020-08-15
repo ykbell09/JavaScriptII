@@ -45,7 +45,6 @@ const displayProjectPreview = (section, data, i) => {
     `)
 };
 
-
 const rightScroll = (section, data) => {
     const index = $(section).find('.preview-card').attr('id');
     let i = parseInt(index) + 1;
@@ -59,7 +58,6 @@ const leftScroll = (section, data) => {
     if (i < 0) i = data.length - 1;
     displayProjectPreview(section, data, i);
 };
-
 
 $(function () {
     displayProjectPreview('#section-web', webProjects, 0);
@@ -80,6 +78,23 @@ $(function () {
     
     $('#section-media').find('.left-arrow').on('click', function () {
         leftScroll('#section-media', mediaProjects);
+    });
+
+    $('.headshot').on('mouseover', function () {
+        $(this).animate({
+            width: 405,
+            padding: 15,
+        }, 100, function () {
+                $(this).animate({
+                    width: 395,
+                    padding: 25
+                }, 300, function () {
+                    $(this).animate({
+                        width: 400,
+                        padding: 20
+                    }, 200);
+                });
+        });
     });
 
 });

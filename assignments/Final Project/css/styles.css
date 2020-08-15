@@ -238,7 +238,7 @@ main section {
 .headshot {
     flex-shrink: 2;
     max-width: 400px;
-    padding: 20px 0px;
+    padding: 20px;
 }
 
 
