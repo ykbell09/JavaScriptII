@@ -1,5 +1,5 @@
 // simulation of data being received as JSON from a database
-const webProjects = [
+let webProjects = `[
     {
         "image": "images/thumb_ahills.png",
         "title": "The A-Hills",
@@ -10,9 +10,10 @@ const webProjects = [
         "title": "Ability Together",
         "details": "A custom Wordpress site for a public speaker and advocate."
     }
-];
+]`;
+webProjects = JSON.parse(webProjects);
 
-const mediaProjects = [
+let mediaProjects = `[
     {
         "image": "images/thumb_peger.jpg",
         "title": "Company Portrait",
@@ -33,9 +34,10 @@ const mediaProjects = [
         "title": "Kobra Flash Modifier",
         "details": "Video scripting and recorded product demonstration."
     }
-];
+]`;
+mediaProjects = JSON.parse(mediaProjects);
 
-const headshots = [
+let headshots = `[
     {
         "image": "images/photo_headshot_businessRound.png"
     },
@@ -45,8 +47,11 @@ const headshots = [
     {
         "image": "images/photo_headshot_knitRound.png"
     }
-];
+]`;
+headshots = JSON.parse(headshots);
 
+
+// function to display the individual project previews in the appropriate area
 const displayProjectPreview = (section, data, i) => {
     return $(section).find('.preview-card').attr('id', `${i}`).html(`
         <img src="${data[i].image}" />
@@ -57,6 +62,7 @@ const displayProjectPreview = (section, data, i) => {
     `)
 };
 
+// functionality for the arrow buttons on each preview
 const previewScroll = (section, increment, data) => {
     const index = $(section).find('.preview-card').attr('id');
     let i = parseInt(index) + increment;
@@ -65,6 +71,7 @@ const previewScroll = (section, increment, data) => {
     displayProjectPreview(section, data, i);
 };
 
+// fun little function to randomly change my headshot if you click on it, and save it local storage
 const swapHeadshot = () => {
     let i = Math.floor(Math.random() * headshots.length);
     $('.headshot').attr('src', headshots[i].image).addClass('headshot');
@@ -72,9 +79,12 @@ const swapHeadshot = () => {
 };
 
 $(function () {
+
+    // onload, display project previews with current data
     displayProjectPreview('#section-web', webProjects, 0);
     displayProjectPreview('#section-media', mediaProjects, 0);
 
+    // display my business headshot, or the last headshot shown
     let headshot = localStorage.headshot;
     if (!localStorage.headshot) {
         headshot = headshots[0].image;
@@ -98,6 +108,7 @@ $(function () {
         previewScroll('#section-media', -1, mediaProjects);
     });
 
+    // animate headshot on mouseover for fun
     $('.headshot').on('mouseover', function () {
         $(this).animate({
             width: 405,
@@ -110,6 +121,7 @@ $(function () {
                 });     
     });
 
+    // event listner for swapping headshot
     $('.headshot').on('click', function () {
         swapHeadshot();
     });
