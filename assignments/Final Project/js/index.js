@@ -14,7 +14,7 @@ const webProjects = [
 
 const mediaProjects = [
     {
-        "image": "images/photo_peger.jpg",
+        "image": "images/thumb_peger.jpg",
         "title": "Company Portrait",
         "details": "Retro yearbook themed photo editing."
     },
@@ -33,7 +33,19 @@ const mediaProjects = [
         "title": "Kobra Flash Modifier",
         "details": "Video scripting and recorded product demonstration."
     }
-]
+];
+
+const headshots = [
+    {
+        "image": "images/photo_headshot_businessRound.png"
+    },
+    {
+        "image": "images/photo_headshot_climbRound.png"
+    },
+    {
+        "image": "images/photo_headshot_knitRound.png"
+    }
+];
 
 const displayProjectPreview = (section, data, i) => {
     return $(section).find('.preview-card').attr('id', `${i}`).html(`
@@ -45,56 +57,61 @@ const displayProjectPreview = (section, data, i) => {
     `)
 };
 
-const rightScroll = (section, data) => {
+const previewScroll = (section, increment, data) => {
     const index = $(section).find('.preview-card').attr('id');
-    let i = parseInt(index) + 1;
+    let i = parseInt(index) + increment;
+    if (i < 0) i = data.length - 1;
     if (i === data.length) i = 0;
     displayProjectPreview(section, data, i);
 };
 
-const leftScroll = (section, data) => {
-    const index = $(section).find('.preview-card').attr('id');
-    let i = parseInt(index) - 1;
-    if (i < 0) i = data.length - 1;
-    displayProjectPreview(section, data, i);
+const swapHeadshot = () => {
+    let i = Math.floor(Math.random() * headshots.length);
+    $('.headshot').attr('src', headshots[i].image).addClass('headshot');
+    localStorage.setItem('headshot', headshots[i].image);
 };
 
 $(function () {
     displayProjectPreview('#section-web', webProjects, 0);
     displayProjectPreview('#section-media', mediaProjects, 0);
 
+    let headshot = localStorage.headshot;
+    if (!localStorage.headshot) {
+        headshot = headshots[0].image;
+    }
+    $('.headshot').attr('src', headshot);
+    
     // arrow scroll event listeners
     $('#section-web').find('.right-arrow').on('click', function () {
-        rightScroll('#section-web', webProjects);
+        previewScroll('#section-web', 1, webProjects);
     });  
 
     $('#section-web').find('.left-arrow').on('click', function () {
-        leftScroll('#section-web', webProjects);
+        previewScroll('#section-web', -1, webProjects);
     });
 
     $('#section-media').find('.right-arrow').on('click', function () {
-        rightScroll('#section-media', mediaProjects);
+        previewScroll('#section-media', 1, mediaProjects);
     });
     
     $('#section-media').find('.left-arrow').on('click', function () {
-        leftScroll('#section-media', mediaProjects);
+        previewScroll('#section-media', -1, mediaProjects);
     });
 
     $('.headshot').on('mouseover', function () {
         $(this).animate({
             width: 405,
             padding: 15,
-        }, 100, function () {
-                $(this).animate({
-                    width: 395,
-                    padding: 25
-                }, 300, function () {
+        }, 100, function ()  {
                     $(this).animate({
                         width: 400,
                         padding: 20
                     }, 200);
-                });
-        });
+                });     
+    });
+
+    $('.headshot').on('click', function () {
+        swapHeadshot();
     });
 
 });
