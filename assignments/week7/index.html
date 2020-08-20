@@ -1,0 +1,41 @@
+<!-- UCI-CE JavaScript II - Assignment 7 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using AJAX</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/ajax.js"></script>
+    <!-- To solved the below script loading on page load, I called it using jQuery with my event listener so that I would still be using the JSON-P method, and to avoid the CORS errors I was receiving using the XMLHttpRequest method -->
+    <!-- <script src="https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=getData&tags=dog&format=json"></script> -->
+</head>
+
+<body>
+    <div id="main-container">
+        <header>
+            <h1>Using AJAX</h1>
+        </header>
+
+        <h3>(Please run from server/localhost for AJAX to work)</h3>
+
+        <main>
+            <button id="fetch">Fetch Pets</button>
+
+            <label for="front">Front</label>
+            <input id="front" type="radio" name="sort" checked>
+
+            <label for="back">Back</label>
+            <input id="back" type="radio" name="sort">
+
+            <fieldset id="pet-list" class="hide">
+            </fieldset>
+
+            <fieldset id="quote" class="hide">
+            </fieldset>
+        </main>
+    </div>
+
+</body>
+</html>

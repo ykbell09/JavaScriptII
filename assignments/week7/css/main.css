@@ -1,0 +1,110 @@
+/* UCI-CE JavaScript II - Assignment 7 */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+#main-container {
+    min-width: 80%;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+}
+
+header h1 {
+    text-align: center;
+    padding: 0px;
+}
+
+.pet {
+    margin:5px;
+    width:80px;
+    height:80px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(48, 46, 46, 0.2);
+
+}
+
+.pet:hover {
+    border:2px solid red;
+    cursor:grabbing;
+}
+
+.hide {
+    display:none;
+}
+.show {
+    display:block;
+}
+
+main {
+    text-align: left;
+    padding:10px;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    background-color: #e3e3e3;
+    border-radius: 6px;
+}
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+fieldset {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+fieldset label {
+    display: inline-block;
+    width:150px;
+    text-align: right;
+    margin-right:10px;
+}
+
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+
+button {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    background: #FCB362;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+button:hover {
+    background-color: #fbfcfc;
+}
+
+
+#quote {
+    max-width: 800px;
+    margin:auto;
+    color:blue;
+}
+
+#author {
+    color:black;
+    float:right;
+}
