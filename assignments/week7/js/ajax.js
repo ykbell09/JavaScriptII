@@ -25,7 +25,7 @@ const fetchData = () => {
         })
         .appendTo($mainContainer);
 
-    $.getScript('https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=displayData&tags=dog&format=json');
+    $.getScript('https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=displayData&tags=doggos&format=json');
 }
 
 const displayData = (data) => {
