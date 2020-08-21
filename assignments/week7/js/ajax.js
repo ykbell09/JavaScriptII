@@ -8,7 +8,7 @@ let pets;
 let $loadingImage;
 let $quoteArea;
 
-// function called on button press -- prepares for new data by clearing old data restoring the 'hide' class; shows a loading gif
+// function called on button press -- prepares for new data by clearing old data restoring the 'hide' class; shows a loading gif, then runs displayData()
 const fetchData = () => {
     $petList = $('#pet-list');
     $quoteArea = $('#quote');
@@ -54,6 +54,7 @@ const displayData = (data) => {
     }, 1800);
 };
 
+// generates a random number to use as the index when selecting a quote to display, displays quote
 const getQuotes = () => {
 
     $quoteArea = $('#quote');
@@ -80,6 +81,7 @@ const getQuotes = () => {
 
 };
 
+// checks to see which radio button is select, then moves the selected photo in the corresponding direction
 const moveImage = (i) => {
     const $movedImage = $(`#${i}`);
     const $direction = $(':checked').attr('id')
