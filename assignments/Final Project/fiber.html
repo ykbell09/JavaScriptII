@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/fiber.css" rel="stylesheet" />
     <script src="js/jquery-3.5.1.js"></script>
     <script src="js/fiber.js"></script>
     <title>Yvette Bell</title>
@@ -28,6 +29,9 @@
                     <a href="#section-about">about</a>
                 </li>
                 <li>
+                    <a href="./fiber.html">fiber</a>
+                </li>
+                <li>
                     <a href="mailto:hello@yvettebell.com">
                         <img src="images/icon_mail.png" class="nav-icon" alt="email icon" />
                     </a>
@@ -36,14 +40,15 @@
         </nav>
 
         <section id="hero">
-            <img src="images/photo_hero.jpg" class="image-hero shadow"
-                alt="A woman wearing an orange shirt and black pants standing on a rock in front of trees, looking at the sky." />
+            <img src="images/photo_hero2.jpg" class="image-hero shadow"
+                alt="A woman wearing a striped sweater, sitting on a log with faded tress in the background, looking at the sky." />
             <div class="container-hero-title">
                 <h1>Yvette Bell</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat.</p>
+                <p>I started crocheting with my Grandmother and my Mother around the age of 7. My first project was a
+                    granny-square afghan that my Grandmother and I took turns working out of scrap yarn. As a teenager,
+                    my Mother tried teaching me to knit, but I never caught on. Years later, a college friend showed me
+                    again, and something clicked. I've been hooked every since. Here are a few of my favorite projects.
+                </p>
                 <p><a href="mailto:hello@yvettebell.com">hello@yvettebell.com</a></p>
                 <div class="container-media-icons">
                     <a href="mailto:hello@yvettebell.com"><img src="images/icon_mail.png" class="icon"
@@ -60,22 +65,23 @@
     </header>
 
     <main>
+        <section>
+            <div class="section-container">
 
-            <button id="fetch">Fetch Pets</button>
+                <h3>fiber arts</h3>
+                <h2>Knit & Crochet Projects</h2>
+                <p id="fiber-info">Please select a project image to the right to learn more.</p>
+                <p id="fiber-description"></p>
+            </div>
+            <div id="fiber-photos" class="section-shaded"></div>
 
-            <label for="front">Front</label>
-            <input id="front" type="radio" name="sort" checked>
+        </section>
 
-            <label for="back">Back</label>
-            <input id="back" type="radio" name="sort">
-
-            <fieldset id="pet-list" class="hide">
-            </fieldset>
-
-            <fieldset id="quote" class="hide">
-            </fieldset>
-        </main>
-    </div>
+    </main>
+    <footer>
+        <a href="http://www.yvettebell.com">www.yvettebell.com</a>
+    </footer>
 
 </body>
+
 </html>
