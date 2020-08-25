@@ -1,11 +1,3 @@
-:root {
-    --grey: #41393b;
-    --ltgreen: #61988e;
-    --offwhite: #fffbfe;
-    --dkgreen: #04313a;
-    --orange: #f6b378;
-}
-
 #fiber-photos {
     display: flex;
     flex-wrap: wrap;
