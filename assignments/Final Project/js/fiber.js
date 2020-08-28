@@ -30,10 +30,10 @@ const displayData = (data) => {
   for (let i in fiberData) {
     const fiberImage = fiberData[i].media.m;
     const $newImg = $('<div></div>');
-    $newImg.html(`
-        <img src="${fiberImage}" />
-      `);
     $newImg
+      .html(`
+        <img src="${fiberImage}" />
+      `)
       .attr('src', fiberImage)
       .attr('id', i)
       .addClass('fiber-image')

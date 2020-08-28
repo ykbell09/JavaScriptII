@@ -1,0 +1,13 @@
+main section {
+    align-items: flex-start;
+}
+
+.media-container {
+    width: 60%;
+    min-height: 400px;
+    background-color: white;
+}
+
+.media-display {
+    margin: 15px;
+}
