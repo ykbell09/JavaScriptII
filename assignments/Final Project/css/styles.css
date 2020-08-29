@@ -28,6 +28,10 @@ body {
     box-shadow: 0 4px 8px 0 rgba(48, 46, 46, 0.2);
 }
 
+.portrait {
+    width: 400px;
+}
+
 .section-shaded {
     background-color: var(--ltgreen);
 }
@@ -244,14 +248,6 @@ main section {
 
 .preview-card img {
     max-height: 200px;
-}
-
-/* about me */
-
-.headshot {
-    flex-shrink: 2;
-    max-width: 400px;
-    padding: 20px;
 }
 
 /* footer style */
