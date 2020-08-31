@@ -1,7 +1,7 @@
 // create a project object constructor
-function PrintProject(title, image, description) {
+function PrintProject(title, images, description) {
     this.title = title;
-    this.image = image;
+    this.images = images;
     this.description = description;
 };
 
@@ -16,7 +16,7 @@ const atBrochure = new PrintProject(
         "images/media/media_brochure2.png",
         "images/media/media_brochure_grapic.png",
     ],
-    "This brochure was created to the meet client's requests to correlate with their website. Graphics were created using Adobe Photoshop, the provided raw headshot was touched up dititally, and the brochure itself was assembled using Microsoft Publisher via remote computer access."
+    "This brochure was designed to the meet client's requests to correlate with their website. Graphics were created using Adobe Photoshop, the provided raw headshot was touched up digitally, and the brochure itself was assembled using Microsoft Publisher via remote computer access."
 );
 const atASL = new PrintProject(
     "Medical ASL handout",
@@ -30,19 +30,49 @@ const atASL = new PrintProject(
 
 printProjects.push(atBrochure, atASL);
 
-const displayProjects = () => {
+const displayPrintProjects = () => {
     for (let i in printProjects) {
+        const project = printProjects[i];
+
+        // add thumbnails to UI
         $('#print-media').append(`
-            <h4>${printProjects[i].title}</h4>
-            <img src="${printProjects[i].image[0]}" />
-            <img src="${printProjects[i].image[1]}" />      
-        `);
-        $('#print-media-details').append(`
-            <h4>${printProjects[i].title}</h4>
-            <p>${printProjects[i].description}</p>
+            <h4>${project.title}</h4>
+            <img id="thumb-${i}-0" src="${project.images[0]}" />
+            <img id="thumb-${i}-1" src="${project.images[1]}" />      
         `);
 
-        
+        // add details to description (left column)
+        $('#print-media-details').append(`
+        <h4>${project.title}</h4>
+        <p>${project.description}</p>
+        `);
+
+        // formula to create pop up w/close button
+        const displayPopUp = (imgIndex) => {
+            let imgSrc = project.images[imgIndex];
+
+            $('#section-print').append(`
+                <div class="popup shadow" id="img-${i}-${imgIndex}">
+                    <img class=" border" src="${imgSrc}" />
+                    <br />
+                    <button class="border">close</button>
+                </div>
+            `); 
+
+            $('button').on('click', function () {
+                $('.popup').remove();
+            });
+        };
+
+
+        // event listeners for thumbnails
+        $(`#thumb-${i}-0`).on('click', function () {
+            displayPopUp(0);
+        });
+
+        $(`#thumb-${i}-1`).on('click', function () {
+            displayPopUp(1);
+        });
     }
 };
 
@@ -50,26 +80,6 @@ const displayProjects = () => {
 
 $(function () {
 
-    displayProjects();
-
-    $('#select-menu').selectmenu().on('selectmenuselect', function () {
-        getSelectedProject();
-    });
+    displayPrintProjects();
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

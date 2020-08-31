@@ -20,7 +20,7 @@ let mediaProjects = `[
         "details": "Retro yearbook themed photo editing."
     },
     {
-        "image": "images/thumb_asl1.png",
+        "image": "images/media/media_asl_graphic.png",
         "title": "Medical ASL Brochure",
         "details": "A print media project for Ability Together."
     },
@@ -113,10 +113,12 @@ $(function () {
         $(this).animate({
             width: 405,
             padding: 15,
+            margin: 0
         }, 100, function ()  {
                     $(this).animate({
                         width: 400,
-                        padding: 20
+                        padding: 20,
+                        margin: 0
                     }, 200);
                 });     
     });
